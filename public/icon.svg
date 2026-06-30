@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Bedbug Map">
+  <rect width="512" height="512" rx="96" fill="#0f172a"/>
+  <!-- bed -->
+  <rect x="104" y="300" width="304" height="64" rx="14" fill="#f8fafc"/>
+  <rect x="104" y="244" width="34" height="120" rx="10" fill="#f8fafc"/>
+  <rect x="150" y="280" width="78" height="30" rx="14" fill="#cbd5e1"/>
+  <rect x="114" y="364" width="20" height="40" rx="6" fill="#f8fafc"/>
+  <rect x="378" y="364" width="20" height="40" rx="6" fill="#f8fafc"/>
+  <!-- bedbug -->
+  <g stroke="#ef4444" stroke-width="7" stroke-linecap="round">
+    <line x1="300" y1="232" x2="276" y2="214"/>
+    <line x1="344" y1="232" x2="368" y2="214"/>
+    <line x1="296" y1="270" x2="270" y2="262"/>
+    <line x1="296" y1="288" x2="270" y2="292"/>
+    <line x1="296" y1="306" x2="272" y2="320"/>
+    <line x1="348" y1="270" x2="374" y2="262"/>
+    <line x1="348" y1="288" x2="374" y2="292"/>
+    <line x1="348" y1="306" x2="372" y2="320"/>
+  </g>
+  <circle cx="322" cy="232" r="13" fill="#ef4444"/>
+  <ellipse cx="322" cy="286" rx="30" ry="40" fill="#ef4444"/>
+  <line x1="322" y1="252" x2="322" y2="320" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+</svg>

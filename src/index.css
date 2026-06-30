@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/*
+ * Tailwind's preflight sets `img { max-width: 100% }`, which breaks Leaflet
+ * tile sizing. Keep tile images unconstrained.
+ */
+.leaflet-container img.leaflet-tile {
+  max-width: none !important;
+}
+
+.leaflet-container {
+  font: inherit;
+  background: #aadaff;
+}
+
+/* ---- Confidence pin (divIcon) ---- */
+.bb-pin-wrap {
+  background: transparent;
+  border: 0;
+}
+.bb-pin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  background: var(--bb, #9ca3af);
+  color: #fff;
+  font:
+    600 12px/1 system-ui,
+    sans-serif;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+.bb-pin-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 10px;
+  line-height: 1;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+/* ---- Temporary "reporting here" pin ---- */
+.bb-temp-wrap {
+  background: transparent;
+  border: 0;
+}
+.bb-temp {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 3px;
+  border-radius: 9999px;
+  background: #2563eb;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #2563eb;
+  animation: bb-pulse 1.4s ease-out infinite;
+}
+@keyframes bb-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(37, 99, 235, 0);
+  }
+}
+
+/* ---- Popup ---- */
+.bb-pop {
+  font:
+    13px/1.45 system-ui,
+    sans-serif;
+  min-width: 180px;
+  color: #1f2937;
+}
+.bb-pop-tier {
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+.bb-pop-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #0f172a;
+}
+.bb-pop-sub {
+  color: #64748b;
+  margin-top: 1px;
+}
+.bb-pop-counts {
+  display: flex;
+  gap: 12px;
+  margin: 8px 0 4px;
+}
+.bb-pop-date {
+  color: #64748b;
+}
+.bb-pop-stale {
+  color: #92400e;
+  background: #fef3c7;
+  padding: 4px 6px;
+  border-radius: 4px;
+  margin-top: 6px;
+  font-size: 12px;
+}
+.bb-pop-unverified {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

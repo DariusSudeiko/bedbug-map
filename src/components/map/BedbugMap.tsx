@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { MapContainer, TileLayer, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, ZoomControl, useMap, useMapEvents } from 'react-leaflet'
 import L, { type LatLngBounds } from 'leaflet'
 import { reportsInBounds } from '../../lib/api'
 import type { LocationSummary } from '../../lib/types'
@@ -98,12 +98,20 @@ export function BedbugMap({
 
   return (
     <div className="relative h-full w-full">
-      <MapContainer center={LT_CENTER} zoom={LT_ZOOM} scrollWheelZoom className="h-full w-full">
+      <MapContainer
+        center={LT_CENTER}
+        zoom={LT_ZOOM}
+        scrollWheelZoom
+        zoomControl={false}
+        className="h-full w-full"
+      >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           maxZoom={19}
         />
+        {/* Bottom-right keeps the +/- away from the top-left search bar on mobile. */}
+        <ZoomControl position="bottomright" />
         {view === 'pins' ? (
           <ClusterLayer summaries={summaries} onSelect={onSelectLocation} />
         ) : (

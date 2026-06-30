@@ -11,6 +11,11 @@ export function SearchBox({ onSelect }: { onSelect: (r: GeoResult) => void }) {
   const [error, setError] = useState<string | null>(null)
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const abortRef = useRef<AbortController | null>(null)
+  // Drop the long hint on narrow screens where it gets clipped.
+  const placeholder =
+    typeof window !== 'undefined' && window.innerWidth < 640
+      ? 'Search an address…'
+      : 'Search an address…  (or click the map to drop a pin)'
 
   useEffect(() => {
     clearTimeout(timerRef.current)
@@ -56,7 +61,7 @@ export function SearchBox({ onSelect }: { onSelect: (r: GeoResult) => void }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => results.length && setOpen(true)}
-            placeholder="Search an address…  (or click the map to drop a pin)"
+            placeholder={placeholder}
             className="w-full bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-400"
             aria-label="Search an address"
           />

@@ -7,6 +7,7 @@ import { ReportForm } from '../components/ReportForm'
 import { LocationDetail } from '../components/LocationDetail'
 import { ViewToggle } from '../components/ViewToggle'
 import { RecentFeed } from '../components/RecentFeed'
+import { LocateButton } from '../components/LocateButton'
 import { SiteHeader } from '../components/SiteHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { reverseGeocode, type GeoResult } from '../lib/nominatim'
@@ -132,6 +133,7 @@ export function MapPage() {
         <SearchBox onSelect={openReport} />
         <ViewToggle view={view} onChange={setView} />
         <RecentFeed reports={recent} onSelect={onSelectRecent} />
+        <LocateButton onLocate={(p) => setFlyTo(p)} onError={(m) => setToast(m)} />
         <Legend />
 
         {detail && (
